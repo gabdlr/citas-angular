@@ -5,6 +5,7 @@ export const globals = {
   formContainer: {
     formContainer: "[data-testId='pacientFormContainer']",
     subtitle: "[data-testId='formContainerSubtitle']",
+    error: "[data-testId='formError']",
   },
   form: {
     form: "[data-testId='pacientForm']",
