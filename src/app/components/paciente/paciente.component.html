@@ -1,32 +1,49 @@
 <div class="m-3 bg-white shadow-md px-5 py-10 rounded-xl">
-  <p class="font-bold mb-3 text-gray-700 uppercase">
+  <p
+    class="font-bold mb-3 text-gray-700 uppercase"
+    data-testId="pacientCardField"
+  >
     Nombre: <span class="font-normal normal-case">{{ paciente.nombre }}</span>
   </p>
-  <p class="font-bold mb-3 text-gray-700 uppercase">
+  <p
+    class="font-bold mb-3 text-gray-700 uppercase"
+    data-testId="pacientCardField"
+  >
     Propietario:
     <span class="font-normal normal-case">{{ paciente.propietario }}</span>
   </p>
-  <p class="font-bold mb-3 text-gray-700 uppercase">
+  <p
+    class="font-bold mb-3 text-gray-700 uppercase"
+    data-testId="pacientCardField"
+  >
     Email: <span class="font-normal normal-case">{{ paciente.email }}</span>
   </p>
-  <p class="font-bold mb-3 text-gray-700 uppercase">
+  <p
+    class="font-bold mb-3 text-gray-700 uppercase"
+    data-testId="pacientCardField"
+  >
     Fecha alta:
     <span class="font-normal normal-case">{{ paciente.fechaAlta }}</span>
   </p>
-  <p class="font-bold mb-3 text-gray-700 uppercase">
+  <p
+    class="font-bold mb-3 text-gray-700 uppercase"
+    data-testId="pacientCardField"
+  >
     Sintomas:
     <span class="font-normal normal-case">{{ paciente.sintomas }}</span>
   </p>
   <div class="flex justify-between">
     <app-boton-formulario
-      clases="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg"
-      texto="Editar"
       (click)="editarPaciente()"
+      clases="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg"
+      data-testId="pacientCardEditButton"
+      texto="Editar"
     />
     <app-boton-formulario
+      (click)="eliminarPaciente()"
       clases="py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg"
       texto="Eliminar"
-      (click)="eliminarPaciente()"
+      data-testId="pacientCardDeleteButton"
     />
   </div>
 </div>

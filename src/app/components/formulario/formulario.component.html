@@ -1,8 +1,13 @@
 <app-error-formulario *ngIf="form?.invalid && form?.submitted"
   ><p>Todos los campos son obligatorios</p>
 </app-error-formulario>
-<div class="mx-3 md:mx-0">
-  <h2 class="font-black text-3xl text-center">Seguimiento pacientes</h2>
+<div class="mx-3 md:mx-0" data-testId="pacientFormContainer">
+  <h2
+    class="font-black text-3xl text-center"
+    data-testId="formContainerSubtitle"
+  >
+    Seguimiento pacientes
+  </h2>
   <p class="text-xl mt-5 text-center mb-10">
     Añade pacientes y
     <span class="text-indigo-600 font-bold">administralos</span>
@@ -10,21 +15,23 @@
   <form
     #form="ngForm"
     class="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+    data-testId="pacientForm"
     (ngSubmit)="submit(form)"
   >
-    <input ngModel name="id" type="hidden" />
+    <input data-testId="pacientIdInput" name="id" ngModel type="hidden" />
     <div class="mb-5">
       <label for="nombre" class="block text-gray-700 uppercase font-bold"
         >Nombre mascota:
       </label>
       <input
-        ngModel
+        class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        data-testId="pacientNameInput"
         id="nombre"
         name="nombre"
-        class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-        type="text"
+        ngModel
         placeholder="Nombre de la mascota"
         required
+        type="text"
       />
     </div>
     <div class="mb-5">
@@ -32,14 +39,14 @@
         >Nombre propietario:
       </label>
       <input
-        ngModel
         class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        data-testId="pacientOwnerNameInput"
         id="propietario"
         name="propietario"
+        ngModel
         placeholder="Nombre del propietario"
-        type="text"
-        name="propietario"
         required
+        type="text"
       />
     </div>
     <div class="mb-5">
@@ -47,13 +54,14 @@
         >Email:
       </label>
       <input
-        ngModel
         class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        data-testId="pacientEmailInput"
         id="email"
         name="email"
+        ngModel
         placeholder="Email de contacto del propietario"
-        type="text"
         required
+        type="text"
       />
     </div>
     <div class="mb-5">
@@ -61,12 +69,13 @@
         >Fecha alta:
       </label>
       <input
-        ngModel
         class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        data-testId="signUpDateInput"
         id="fechaAlta"
         name="fechaAlta"
-        type="date"
+        ngModel
         required
+        type="date"
       />
     </div>
     <div class="mb-5">
@@ -74,18 +83,20 @@
         Sintomas:
       </label>
       <textarea
-        ngModel
         class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        data-testId="pacientSymptomsInput"
         id="sintomas"
-        placeholder="Describe los sintomas"
         name="sintomas"
+        ngModel
+        placeholder="Describe los sintomas"
         required
       ></textarea>
     </div>
     <input
-      class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
-      type="submit"
       [value]="!!form.value.id ? 'Editar paciente' : 'Agregar paciente'"
+      class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
+      data-testId="submitButtonId"
+      type="submit"
     />
   </form>
 </div>
