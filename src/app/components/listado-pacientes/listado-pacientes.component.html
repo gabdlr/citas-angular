@@ -1,0 +1,19 @@
+<ng-container *ngIf="pacientes$ | async as pacientes">
+  <ng-container *ngIf="pacientes.length > 0; else noHayPacientes">
+    <h2 class="font-black text-3xl text-center">Listado pacientes</h2>
+    <p class="text-xl mt-5 mb-10 text-center">
+      Administra tus <span class="text-indigo-600 font-bold">pacientes</span>
+    </p>
+    <app-paciente
+      *ngFor="let paciente of pacientes; trackBy: trackBy"
+      [paciente]="paciente"
+    ></app-paciente>
+  </ng-container>
+</ng-container>
+
+<ng-template #noHayPacientes>
+  <h2 class="font-black text-3xl text-center">No hay pacientes</h2>
+  <p class="text-xl mt-5 mb-10 text-center">
+    Comienza agregando <span class="text-indigo-600 font-bold">pacientes</span>
+  </p>
+</ng-template>
