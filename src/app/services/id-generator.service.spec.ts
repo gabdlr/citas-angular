@@ -13,4 +13,9 @@ describe('IdGeneratorService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return a string id', () => {
+    const id = service.uuid();
+    expect(id).toBeInstanceOf(String);
+  });
 });
