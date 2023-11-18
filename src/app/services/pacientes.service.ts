@@ -27,6 +27,14 @@ export class PacientesService {
         map((pacientes) => [...pacientes, paciente])
       )
       .subscribe((pacientes) => this._pacientesSubject.next(pacientes));
+    return new Paciente(
+      paciente.email,
+      paciente.fechaAlta,
+      paciente.id,
+      paciente.nombre,
+      paciente.propietario,
+      paciente.sintomas
+    );
   }
 
   //Hacer versiones reactivas
@@ -36,6 +44,14 @@ export class PacientesService {
       ...this._pacientesSubject.getValue(),
       paciente,
     ]);
+    return new Paciente(
+      paciente.email,
+      paciente.fechaAlta,
+      paciente.id,
+      paciente.nombre,
+      paciente.propietario,
+      paciente.sintomas
+    );
   }
 
   editarPaciente(paciente: Paciente) {
