@@ -28,9 +28,6 @@ export class FormularioComponent implements AfterViewInit {
 
   submit(form: NgForm) {
     const paciente = form.value;
-    //hay una magia negra en el medio
-    //de alguna forma esta convirtiendo el string vacio en null es algo de los ngForm
-    //es el .reset(), es eso
     if (form.valid) {
       if (this.form?.value.id === '') {
         this.pacientesService.agregarPaciente({ ...paciente });
